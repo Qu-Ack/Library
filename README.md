@@ -11,3 +11,5 @@ The plan:
 we can do this by adding a class on clicking the button to the form div in our html we can add a class of active to the div so which will have a height parameter defined
 
 * After this step we need an Object Book that will contain all these values. For this we will first need to make an object we will use a constructor for this since I will allow the users to add multiple books.
+
+* After having the data that the users entered we need a way to display that data in form of cards that will appear after adding a book 
