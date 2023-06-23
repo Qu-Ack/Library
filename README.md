@@ -9,3 +9,5 @@ I will first make the basic functionality of the app which will be clicking a bu
 The plan:
 * first I need to add a event listner to the add a book button and make the form for filling a book appear
 we can do this by adding a class on clicking the button to the form div in our html we can add a class of active to the div so which will have a height parameter defined
+
+* After this step we need an Object Book that will contain all these values. For this we will first need to make an object we will use a constructor for this since I will allow the users to add multiple books.
