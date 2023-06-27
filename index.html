@@ -4,25 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="shortcut icon" href="pngtree-vector-book-icon-png-image_1022249.jpg">
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
 <body>
+    <header>
+        <p>Library</p>
+        <button>Login</button>  
+    </header>
+    <main>
     <div class="button-container">
-        <button class="Add-Book">Add a Book</button>
+        <button class="Add-Book"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Add a Book</button>
     </div>
     <div class="form">
-        <form class="form-reset">
+        <form class="form-reset" action="#">
             <ul>
                 <li><label for="bookname">Book Name 
-                </label><input type="text" id="bookname" name="book_name"></li>
+                </label><input type="text" id="bookname" name="book_name"  required maxlength="100"></li>
                 <li>
                     <label for="author">Author</label>
-                    <input type="text" id="author" name="author">
+                    <input type="text" id="author" name="author" required>
                 </li>
                 <li>
-                    <label for="pages">Number Of Pages</label>
-                    <input type="number" id="pages" name="number_of_pages">
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="number_of_pages" required>
                 </li>
                 <li>
                     <label for="read">Is it Read?</label>
@@ -38,5 +47,6 @@
 
     <div class="card-container">
     </div>
+</main>
 </body>
 </html>

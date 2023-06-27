@@ -1,27 +1,97 @@
+:root {
+    --main-color: rgb(244, 7, 74);
+}
+
 body {
     margin:0;
     padding:0;
+    color:var(--main-color);
+    filter: brightness(200%);
     background:black;
+    font-family: sans-serif;
     box-sizing: border-box;
 }
-
+h3 {
+    margin:0;
+}
 .button-container {
     display:flex;
     justify-content: center;
+    padding:32px;
+}
+.button-container svg {
+    width:20px;
+    color:white;
+}
+
+.button-container button {
+    display:flex;
+    gap:12px;   
+    padding:12px;
+    border:2px solid var(--main-color);
+    color:white;
+    align-items: center;
+    background:black;
+}
+.button-container button:hover {
+    background:var(--main-color);
+    cursor:pointer;
+}
+
+.button-container button:focus {
+    outline:none;
+}
+
+
+
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:12px;
+    border-bottom:4px solid 
+}
+header p {
+    margin:12px;
+    font-weight: 900;
+    margin-left:100px;
+    font-size: 40px;
+}
+
+header button {
+    margin-right:100px;
+    border:2px solid var(--main-color);
+    background:black;
+    
+    width:150px;
+    color:white;
+    padding:12px;
+
+    font-size: 24px;
+}
+
+header button:hover {
+    background:var(--main-color);
+    cursor:pointer; 
 }
 
 .form form {
     
     padding:12px;
     background:gray;
+    width:300px;
+    height: 300px;
+    border:2px solid var(--main-color);
     
 }
 
 .form.popup {
     position:fixed;
+    top:29%;
     z-index:9;
-    left:35%;
+    left:37%;
     opacity:1;
+    visibility: visible;
 }
 
 
@@ -46,7 +116,15 @@ h2 {
    
 }
 
-
+ul {
+    margin: 0;
+    padding:0;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 
 
 ul .submit {
@@ -55,6 +133,7 @@ ul .submit {
 }
 ul li {
     list-style:none;
+    flex:1;
     display:grid;
     grid-template-columns: 100px 1fr;
     gap:8px;
@@ -68,5 +147,7 @@ label {
     display:flex;
     justify-content: center;
     padding:32px;
-    opacity:0;
+    visibility: hidden;
+    position:fixed;
+    
 }

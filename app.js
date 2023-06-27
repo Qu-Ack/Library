@@ -38,47 +38,37 @@ function Book(name , author , pages, read) {
     this.author = author
     this.pages = pages
     this.read = read;
-    this.readBook = function(readbtn) {
-        if (read) {
-            readbtn.textContent = "Not Read"
-            this.read = false;
-        }
-        else {
-            readbtn.textContent = "Read"
-            this.read = true;
-        }
-    } 
+    this.display = function() {
+       cardContainer.innerHTML += `<div class="card" data-index = ${myLibrary.indexOf(this)}><h3>${this.name}</h3><h3>${this.author}</h3><h3>${this.pages}</h3><button class="remove" data-index = ${myLibrary.indexOf(this)}>Remove Book</button><button class="readbtn" data-index = ${myLibrary.indexOf(this)}>${this.read}</button></card>`
+    }
 }
-
-
 
 
 
 function addBookToLibrary() {
     submitBtn.addEventListener("click" , function(e) {
-        cardContainer.innerHTML = '';
-        e.preventDefault()
-        let initialReadBtnValue = '';
+        e.preventDefault();
+        let initialread = '';
+        
+
         if (isRead.checked) {
-            initialReadBtnValue = 'not read';
+            initialread = 'not read'
         }
         else {
-            initialReadBtnValue = 'read'
+            initialread = 'read'
         }
-        var book = new Book(bookName.value , author.value , pages.value , initialReadBtnValue);
+        var book = new Book(bookName.value , author.value , pages.value , initialread);
         myLibrary.push(book);
-        myLibrary.forEach(textBook => { 
-            cardContainer.innerHTML += `<div class="card" data-index = ${myLibrary.indexOf(textBook)}><h3>${textBook.name}</h3><h3>${textBook.author}</h3><h3>${textBook.pages}</h3><button class="remove" data-index = ${myLibrary.indexOf(textBook)}>Remove Book</button><button class="readbtn">${textBook.read}</button></card>`
-            let removebtns = document.querySelectorAll('.remove');
-            let readbtns = document.querySelectorAll(".readbtn")
-            const removebtnsarr = Array.from(removebtns)
-            removeBook(removebtnsarr);
-            bookRead(readbtns , book)
-        }) 
-        formClass.reset();
+        book.display();
+        const removebtns = document.querySelectorAll('.remove');
+        const removebtnsarr = Array.from(removebtns)
+        const readbtns = document.querySelectorAll('.readbtn')
+        removeBook(removebtnsarr)
+        readBook(readbtns)
+        
         divForm.style.opacity = 0;
         divForm.style.transform = 'scale(0.001)'
-        
+        formClass.reset();
         
         
     })
@@ -103,22 +93,18 @@ function removeBook(nl) {
 
 }
 
-function bookRead(readbtns , item) {
-    readbtns.forEach(element => {
+function readBook(btns) {
+    btns.forEach(element => {
         element.addEventListener('click' , function() {
             if (element.textContent == 'read') {
-                element.textContent = 'not read';
-                item.read = 'read'
-                element.style.background = "red";
+                element.textContent = 'not read'
             }
             else if (element.textContent == 'not read') {
                 element.textContent = 'read'
-                item.read = 'not read'
-                element.style.background = 'green';
             }
-            
         })
-    });
-    
+    })
+
 }
+
 
